@@ -5,8 +5,6 @@ import com.IPL.DashBoard.IPLDashBoard.Model.Team;
 import com.IPL.DashBoard.IPLDashBoard.Repository.MatchRepository;
 import com.IPL.DashBoard.IPLDashBoard.Repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -24,6 +22,12 @@ public class TeamController {
         this.teamRepository = teamRepository;
         this.matchRepository = matchRepository;
     }
+
+    @GetMapping("/teams")
+    public Iterable<Team> getAllTeams() {
+        return this.teamRepository.findAll();
+    }
+
 
     @GetMapping("/teams/{teamName}")
     public Team getTeams(@PathVariable String teamName) {

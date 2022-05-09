@@ -20,6 +20,7 @@
 .win-loss-section {
   justify-self: center;
   padding: 40px;
+  align-self: right;
   text-align: center;
 }
 .more-link {
